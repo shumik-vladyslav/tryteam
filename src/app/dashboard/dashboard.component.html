@@ -1,0 +1,56 @@
+
+<div class="main-wrap-dasbord">
+  <div class="header">
+    <div class="logo">
+      Олимп
+    </div>
+    <div class="out-button">
+      <button>
+        Выход
+      </button>
+    </div>
+  </div>
+  <div class="main-content-wrap">
+    <div class="sidebar">
+      <div>
+        <button>
+          Главная
+        </button>
+      </div>
+      <div>
+        <button class="active-btn-sidebar">
+          Регистрация полиса ОСАГО
+        </button>
+      </div>
+      <div>
+        <button>
+          Выплаты
+        </button>
+      </div>
+      <div>
+        <button>
+          Осмотр автомобилей
+        </button>
+      </div>
+    </div>
+    <div class="main-content">
+      <p-dataTable [value]="cars">
+        <p-column field="id" header="id"></p-column>
+        <p-column field="conclusionDate" header="conclusionDate">
+          <ng-template let-row="rowData" pTemplate="body">
+            {{row.conclusionDate | date}}
+          </ng-template>
+        </p-column>
+        <p-column field="endDate" header="endDate">
+          <ng-template let-row="rowData" pTemplate="body">
+            {{row.endDate | date}}
+          </ng-template>
+        </p-column>
+        <p-column field="series" header="series"></p-column>
+        <p-column field="number" header="number"></p-column>
+        <p-column field="isChecked" header="isChecked"></p-column>
+      </p-dataTable>
+    </div>
+  </div>
+</div>
+

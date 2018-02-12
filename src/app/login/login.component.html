@@ -1,0 +1,41 @@
+<div class="main-wrap">
+  <div class="row">
+    <div class="col-md-6 new-user-alert centered">
+      <div *ngIf="brandNew" style="" class="alert alert-success" role="alert">
+        <strong>All set!</strong> Войдите в свой аккаунт
+      </div>
+      <h2 style="margin-top: 0;color: rgba(60, 60, 60, 1);">Авторизация</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <form #f="ngForm" novalidate (ngSubmit)="login(f)">
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <div>
+            <input id="email" type="text" required name="email" class="form-control" placeholder="Email" [(ngModel)]="credentials.email" #email="ngModel" tmFocus validateEmail>
+            <small class="error" style="margin-top: 5px;" [hidden]="email.valid || (email.pristine && !submitted)" class="text-danger">Введите корректный email</small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Пароль</label>
+          <input style="width: 100%;" type="password" class="form-control" id="password" required name="password" placeholder="Password" ngModel [(ngModel)]="credentials.password">
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary login-btn" [disabled]="f.invalid || isRequesting">Вход</button>
+          <!--<app-spinner [isRunning]="isRequesting"></app-spinner>-->
+        </div>
+
+        <div *ngIf="errors" class="alert alert-danger" role="alert">
+          <strong>Ошибка!</strong> {{errors}}
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
